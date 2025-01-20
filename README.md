@@ -1,0 +1,1 @@
+# poc-xss-django-allauth
