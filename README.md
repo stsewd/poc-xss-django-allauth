@@ -1,4 +1,4 @@
-# Proof of concept for a XSS vulnerability in django-allauth@0.63.5
+# Proof of concept for a XSS vulnerability in django-allauth 0.63.5
 
 ## Requirements
 
