@@ -24,5 +24,6 @@ $ uv run manage.py runserver
 
 **XSS in social connections page**
 
-- Log in with the user you created.
+- Go to ``http://127.0.0.1:8000/accounts/login/``
+- Log in with the user you created
 - Go to ``http://127.0.0.1:8000/accounts/3rdparty/?scope=</script><script>alert(document.domain)</script><script>``
