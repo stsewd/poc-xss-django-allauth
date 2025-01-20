@@ -1,5 +1,7 @@
 # Proof of concept for a XSS vulnerability in django-allauth 0.63.5
 
+You can read the full post [here](https://stsewd.dev/posts/xss-in-django-allauth-fb-provider/).
+
 ## Requirements
 
 - Python
