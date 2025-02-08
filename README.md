@@ -22,13 +22,13 @@ $ uv run manage.py runserver
 
 **XSS in login page**
 
-- While logged out, go to ``http://127.0.0.1:8000/accounts/login/?scope=</script><script>alert(document.domain)</script><script>``
+- While logged out, go to `http://127.0.0.1:8000/accounts/login/?scope=</script><script>alert(document.domain)</script><script>`
 
 **XSS in social connections page**
 
-- Go to ``http://127.0.0.1:8000/accounts/login/``
+- Go to `http://127.0.0.1:8000/accounts/login/`
 - Log in with the user you created
-- Go to ``http://127.0.0.1:8000/accounts/3rdparty/?scope=</script><script>alert(document.domain)</script><script>``
+- Go to `http://127.0.0.1:8000/accounts/3rdparty/?scope=</script><script>alert(document.domain)</script><script>`
 
 Try updating the project to use django-allauth 0.63.6, and repeat the steps to see that the vulnerability is fixed.
 
